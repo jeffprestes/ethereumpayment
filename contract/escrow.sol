@@ -3,6 +3,7 @@ pragma solidity 0.5.13;
 contract Escrow {
     
     address payable public beneficiary;
+    string public motivation;
     
     constructor() public {
         beneficiary = msg.sender;
@@ -12,7 +13,8 @@ contract Escrow {
         return address(this).balance;
     }
     
-    function pay() public payable returns(bool) {
+    function pay(string memory _motivation) public payable returns(bool) {
+        motivation = _motivation;
         return true;
     }
     
