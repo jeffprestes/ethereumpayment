@@ -29,10 +29,10 @@ function executePayment() {
     var motivation = document.frmPayment.motivation.value;
     var boxCommStatus = document.getElementById("boxCommStatus");
     boxCommStatus.innerHTML = "Sending transaction...";
-    var aditionalSettings = {
+    var additionalSettings = {
         value: ethers.utils.parseUnits(amount, 'wei')
     }; 
-    contract.pay(motivation, aditionalSettings)
+    contract.pay(motivation, additionalSettings)
     .then( (tx) => {
         console.log("executePayment - Transaction ", tx);   
         boxCommStatus.innerHTML = "Transaction sent. Waiting for the result...";
