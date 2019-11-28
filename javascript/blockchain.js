@@ -19,8 +19,8 @@ function getContractBalance() {
 }
 
 function executePayment() {
-    var amount = document.frmPayment.amount.value;   
-    if (amount<1) {
+    var amount = document.frmPayment.amount.value;       
+    if (amount<1000000000) {
         alert("You must pay a minimum of 1 gwei to the Contract");
         return false;
     }
@@ -28,7 +28,7 @@ function executePayment() {
     var boxCommStatus = document.getElementById("boxCommStatus");
     boxCommStatus.innerHTML = "Sending transaction...";
     var aditionalSettings = {
-        value: amount
+        value: ethers.utils.parseUnits(amount, 'wei')
     }; 
     contract.pay(motivation, aditionalSettings)
     .then( (tx) => {
