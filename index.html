@@ -9,6 +9,33 @@
 <body>
     <h1>Demo project to show how to pay ethers to a Smart Contract</h1>
     <h3>Actual Smart Contract balance is: <span id="boxBalance">0</span></h3>
+    <hr>
+    <form name="frmPayment" id="frmPayment" action="#" method="get" onsubmit="executePayment(); return false;">
+        <div>
+            <label for="motivation">What's your motivation to make this payment: </label>
+        </div>
+        <div>
+            <input type="text" name="motivation" id="motivation">
+        </div>
+        <div>
+            <label for="amount">Amount to pay to the Contract: </label>
+        </div>
+        <div>
+            <input type="number" name="amount" id="amount" value="1000000000000000"> in wei
+        </div>
+        <div>
+            &nbsp;
+        </div>
+        <div>
+            <button type="submit">Confirm the payment</button>
+        </div>
+        <div>
+            &nbsp;
+        </div>
+        <div id="boxCommStatus">
+            (Blockchain communication status)
+        </div>
+    </form>
     <script charset="utf-8"
         src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
         type="text/javascript">
