@@ -4,9 +4,11 @@ var signer = provider.getSigner();
 var contract = new ethers.Contract(contractAddress, contractAbi, signer);
 
 function getContractBalance() {    
-    var boxBalance = document.getElementById("boxBalance");     
+    var boxBalance = document.getElementById("boxBalance");
+    console.log("getContractBalance - submitting the request");     
     contract.getContractBalance()
     .then( (resultFromContract) => {
+        console.log("getContractBalance - result is", resultFromContract);
         boxBalance.innerHTML = resultFromContract;
     })
     .catch( (err) => {
