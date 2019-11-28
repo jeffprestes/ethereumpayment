@@ -13,6 +13,7 @@ function getContractBalance() {
         console.error(err);
         alert("A screen will be load asking to allow this page to connect with your Ethereum account.\nPlease give this permission to proceed.\nOr if you don't have an Ethereum account please install Metamask");
         ethereum.enable();
+        alert("After you give the permission we are going to reload the page");
         document.location = "index.html";
     });
 }
