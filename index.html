@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Payment in Ethereum</title>
+</head>
+<body>
+    <h1>Demo project to show how to pay ethers to a Smart Contract</h1>
+    <h3>Actual Smart Contract balance is: <span id="boxBalance">0</span></h3>
+    <script charset="utf-8"
+        src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
+        type="text/javascript">
+    </script>
+    <script src="javascript/abi.js"></script>
+    <script src="javascript/blockchain.js"></script>
+    <script>
+        getContractBalance();
+    </script>
+</body>
+</html>
