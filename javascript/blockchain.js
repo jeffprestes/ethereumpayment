@@ -28,27 +28,26 @@ function executePayment() {
     var boxCommStatus = document.getElementById("boxCommStatus");
     boxCommStatus.innerHTML = "Sending transaction...";
     var aditionalSettings = {
-        value: amount,
-    } 
+        value: amount
+    }; 
     contrato.pay(motivation, aditionalSettings)
-        .then( (tx) => {
-            console.log("executePayment - Transaction ", tx);   
-            boxCommStatus.innerHTML = "Transaction sent. Waiting for the result...";
-            tx.wait()
-            .then( (resultFromContract) => {
-                getContractBalance();
-                boxCommStatus.innerHTML = "Transaction executed.";
-            })        
-            .catch( (err) => {
-                console.error("executePayment - after tx being mint");
-                console.error(err);
-                boxCommStatus.innerHTML = "Algo saiu errado: " + err.message;
-            })
-        })
+    .then( (tx) => {
+        console.log("executePayment - Transaction ", tx);   
+        boxCommStatus.innerHTML = "Transaction sent. Waiting for the result...";
+        tx.wait()
+        .then( (resultFromContract) => {
+            getContractBalance();
+            boxCommStatus.innerHTML = "Transaction executed.";
+        })        
         .catch( (err) => {
-            console.error("executePayment - tx has been sent");
+            console.error("executePayment - after tx being mint");
             console.error(err);
-            boxCommStatus.innerHTML = "Something went wrong: " + err.message;
+            boxCommStatus.innerHTML = "Algo saiu errado: " + err.message;
         })
-    }
+    })
+    .catch( (err) => {
+        console.error("executePayment - tx has been sent");
+        console.error(err);
+        boxCommStatus.innerHTML = "Something went wrong: " + err.message;
+    })
 }
