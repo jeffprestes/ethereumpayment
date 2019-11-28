@@ -30,12 +30,13 @@ function executePayment() {
     var aditionalSettings = {
         value: amount
     }; 
-    contrato.pay(motivation, aditionalSettings)
+    contract.pay(motivation, aditionalSettings)
     .then( (tx) => {
         console.log("executePayment - Transaction ", tx);   
         boxCommStatus.innerHTML = "Transaction sent. Waiting for the result...";
         tx.wait()
         .then( (resultFromContract) => {
+            console.log("executePayment - the result was ", resultFromContract);
             getContractBalance();
             boxCommStatus.innerHTML = "Transaction executed.";
         })        
