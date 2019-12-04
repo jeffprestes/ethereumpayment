@@ -4,42 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Payment in Ethereum</title>
 </head>
 <body>
-    <h1>Demo project to show how to pay ethers to a Smart Contract</h1>
-    <h3>Actual Smart Contract balance is: <span id="boxBalance">0</span> - <button onclick="getContractBalance()">Refresh the value</button></h3>
-    <hr>
-    <div>
-        <button onclick="connectToWeb3()">Connect to Web3</button>
+    <div class="container-fluid">
+        <h1>Demo project to show how to pay ethers to a Smart Contract</h1>
+        <br>
+        <h3>Actual Smart Contract balance is: <span id="boxBalance">0</span> - <button onclick="getContractBalance()">Refresh the value</button></h3>
+        <hr>
+        <div>
+            <button onclick="connectToWeb3()">Connect to Web3</button>
+        </div>
+        <hr>
+        <form name="frmPayment" id="frmPayment" action="#" method="get" onsubmit="executePayment(); return false;">
+            <div>
+                <label for="motivation">What's your motivation to make this payment: </label>
+            </div>
+            <div>
+                <input type="text" name="motivation" id="motivation">
+            </div>
+            <div>
+                <label for="amount">Amount to pay to the Contract: </label>
+            </div>
+            <div>
+                <input type="number" name="amount" id="amount" value="1000000000000000"> in wei
+            </div>
+            <div>
+                &nbsp;
+            </div>
+            <div>
+                <button type="submit">Confirm the payment</button>
+            </div>
+            <div>
+                &nbsp;
+            </div>
+            <div id="boxCommStatus">
+                (Blockchain communication status)
+            </div>
+        </form>
     </div>
-    <hr>
-    <form name="frmPayment" id="frmPayment" action="#" method="get" onsubmit="executePayment(); return false;">
-        <div>
-            <label for="motivation">What's your motivation to make this payment: </label>
-        </div>
-        <div>
-            <input type="text" name="motivation" id="motivation">
-        </div>
-        <div>
-            <label for="amount">Amount to pay to the Contract: </label>
-        </div>
-        <div>
-            <input type="number" name="amount" id="amount" value="1000000000000000"> in wei
-        </div>
-        <div>
-            &nbsp;
-        </div>
-        <div>
-            <button type="submit">Confirm the payment</button>
-        </div>
-        <div>
-            &nbsp;
-        </div>
-        <div id="boxCommStatus">
-            (Blockchain communication status)
-        </div>
-    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.2.4/dist/web3.min.js"></script>
     <script charset="utf-8"
         src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
         type="text/javascript">
