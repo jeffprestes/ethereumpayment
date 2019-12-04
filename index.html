@@ -10,6 +10,10 @@
     <h1>Demo project to show how to pay ethers to a Smart Contract</h1>
     <h3>Actual Smart Contract balance is: <span id="boxBalance">0</span> - <button onclick="getContractBalance()">Refresh the value</button></h3>
     <hr>
+    <div>
+        <button onclick="connectToWeb3()">Connect to Web3</button>
+    </div>
+    <hr>
     <form name="frmPayment" id="frmPayment" action="#" method="get" onsubmit="executePayment(); return false;">
         <div>
             <label for="motivation">What's your motivation to make this payment: </label>
@@ -44,6 +48,7 @@
     <script src="javascript/blockchain.js"></script>
     <script>
         getContractBalance();
+        loading();
     </script>
 </body>
 </html>
